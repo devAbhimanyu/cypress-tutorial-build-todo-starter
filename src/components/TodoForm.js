@@ -1,7 +1,7 @@
 import React from "react";
 
-export default ({ changeDelegate, value }) => (
-  <form>
+export default ({ changeDelegate, value, submitDelegate }) => (
+  <form onSubmit={submitDelegate}>
     <input
       type="text"
       data-e2e="newTodo-item"

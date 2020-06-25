@@ -1,17 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const TodoItem = props =>
+const TodoItem = ({ desc }) => (
   <li>
     <div className="view">
       <input className="toggle" type="checkbox" />
-      <label>
-        {' '}
-      </label>
+      <label>{desc}</label>
       <button className="destroy" />
     </div>
   </li>
+);
 
-export default props =>
-  <ul className="todo-list">
-    {props.todos.map(todo => <TodoItem />)}
+export default (props) => (
+  <ul data-e2e="todo-list" className="todo-list">
+    {props.todos.map((todo) => (
+      <TodoItem key={todo.id} desc={todo.desc} />
+    ))}
   </ul>
+);
