@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
 
-export default props =>
+export default ({ changeDelegate, value }) => (
   <form>
     <input
-      type='text'
+      type="text"
+      data-e2e="newTodo-item"
       className="new-todo"
-      placeholder="What needs to be done?"/>
+      autoFocus
+      placeholder="What needs to be done?"
+      onChange={changeDelegate}
+      value={value}
+    />
   </form>
+);
