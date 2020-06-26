@@ -1,6 +1,6 @@
 describe("New ToDo Input Test", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.loadDataAtInit([]);
   });
 
   context("Base input Test", () => {

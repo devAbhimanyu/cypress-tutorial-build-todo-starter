@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import Footer from "./Footer";
-import { saveTodo } from "../lib/service";
+import { saveTodo, loadTodo } from "../lib/service";
 
 export default class TodoApp extends Component {
   constructor(props) {
@@ -41,6 +41,20 @@ export default class TodoApp extends Component {
         this.setState({
           error: true,
           newItem: "",
+        });
+      });
+  }
+
+  componentDidMount() {
+    loadTodo()
+      .then(({ data }) => {
+        this.setState({
+          todos: data,
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          error: true,
         });
       });
   }

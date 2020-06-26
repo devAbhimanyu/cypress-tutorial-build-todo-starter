@@ -5,3 +5,4 @@ const instance = axios.create({
 });
 
 export const saveTodo = (item) => instance.post("/api/todos", item);
+export const loadTodo = () => instance.get("/api/todos");
